@@ -1,0 +1,15 @@
+{
+  "name": "圖奇助手",
+  "version": "0.0.0.1",
+  "manifest_version": 3,
+  "description": "您看臺時的小幫手",
+  "icons": {
+    "16": "icons/robot_16.png",
+    "32": "icons/robot_32.png",
+    "64": "icons/robot_64.png",
+    "128": "icons/robot_128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
