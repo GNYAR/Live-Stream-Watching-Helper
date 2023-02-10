@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圖奇助手 - 實況主</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body class="card border-0" style="width: 250px">
+    <div>
+      <a class="btn btn-sm" id="search" href="popup.html">
+        <i class="bi bi-chevron-left"></i> 返回
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="row py-1">
+        <div class="col-auto">
+          <img
+            src="images/profile.png"
+            class="rounded-circle"
+            style="width: 50px"
+            alt="實況主頭像"
+            id="profile"
+          />
+        </div>
+
+        <div class="col ps-0">
+          <h4 class="card-title fw-bold" id="name">實況主名稱</h4>
+          <div class="card-subtitle text-secondary" id="login">
+            實況主使用者名稱
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <button type="button" class="btn btn-sm btn-primary w-100" id="add">
+        <i class="bi bi-plus-lg"></i> 新增
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-danger w-100"
+        id="remove"
+      >
+        <i class="bi bi-trash"></i> 刪除
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/broadcaster.js"></script>
+  </body>
+</html>

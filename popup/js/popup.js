@@ -1,4 +1,4 @@
-$("#btn").click(function (e) {
+$("#broadcaster-login").change(function (e) {
   e.preventDefault();
-  console.log("test");
+  $("#search").attr("href", `broadcaster.html?login=${$(this).val()}`);
 });
