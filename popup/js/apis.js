@@ -1,0 +1,36 @@
+const API_HELIX = "https://api.twitch.tv/helix";
+
+const setHeaders = (xhr) => {
+  xhr.setRequestHeader("Client-Id", CLIENT.ID);
+  xhr.setRequestHeader("Authorization", `Bearer ${Cookies.get("token")}`);
+};
+
+const errorHandler =
+  (params, retry = false) =>
+  ({ status, responseText }) => {
+    const { reject, funcName, callback } = params;
+
+    if (!retry && status === 401) {
+      updateToken().then((_) => {
+        callback().fail(errorHandler(params, true));
+      });
+      return;
+    }
+
+    const msg = `${responseText} (apis.js/${funcName})`;
+    reject(new Error(msg));
+  };
+
+const getUser = (login) =>
+  new Promise((resolve, reject) => {
+    const query = () =>
+      $.ajax({
+        url: `${API_HELIX}/users?login=${login}`,
+        type: "GET",
+        beforeSend: setHeaders,
+        success: ({ data }) => resolve(data.length ? data[0] : null),
+      });
+
+    const errorParams = { reject, funcName: "getUser", callback: query };
+    query().fail(errorHandler(errorParams));
+  });

@@ -16,7 +16,7 @@ const updateToken = () => {
       const now = new Date();
       const expires = new Date(now.getTime() + expires_in * 1000);
 
-      Cookies.set("token", `Bearer ${access_token}`, { expires });
+      Cookies.set("token", access_token, { expires });
       resolve(true);
     }).fail(({ responseText }) => {
       const msg = `${responseText} (utils.js/updateToken)`;
@@ -24,5 +24,3 @@ const updateToken = () => {
     });
   });
 };
-
-updateToken().then(console.log).catch(console.error);
