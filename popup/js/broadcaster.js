@@ -5,5 +5,16 @@ getUser(params.get("login")).then(
     $("#profile").attr("src", profile_image_url);
     $("#name").text(display_name);
     $("#login").text(login);
+    $("button").val(id);
   }
 );
+
+$("#add").click(function (e) {
+  e.preventDefault();
+  list.push($(this).val());
+});
+
+$("#remove").click(function (e) {
+  e.preventDefault();
+  list.remove($(this).val());
+});
