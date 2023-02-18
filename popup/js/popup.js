@@ -29,6 +29,9 @@ getChennels(list.get())
       $(`#${id}-twitch`).attr("href", twitch);
       $(`#${id}-broadcaster`).attr("href", `broadcaster.html?login=${login}`);
     });
+
+    $("button.placeholder").removeAttr("disabled");
+    $(".placeholder").removeClass("placeholder");
   });
 
 $("#broadcaster-login").change(function (e) {
