@@ -16,7 +16,7 @@
   </head>
 
   <body class="card border-0" style="width: 250px">
-    <div class="input-group input-group-sm mb-3 rounded-0">
+    <div class="input-group input-group-sm rounded-0">
       <span class="input-group-text rounded-0">
         <i class="bi bi-twitch"></i>
       </span>
@@ -39,9 +39,88 @@
       </a>
     </div>
 
-    <div class="card-body"></div>
+    <div class="card-body">
+      <div id="list">
+        <div class="row py-1" id="${id}">
+          <div class="col-auto">
+            <img
+              src="images/profile.png"
+              class="rounded-circle border border-2 border-primary"
+              style="width: 42px; padding: 2px"
+              alt="實況主頭像"
+              id="${id}-profile"
+            />
+          </div>
 
-    <div class="card-footer">
+          <div class="col px-0 d-flex flex-column text-truncate">
+            <div class="d-flex">
+              <a
+                class="text-body fw-bold text-truncate text-decoration-none"
+                id="${id}-name"
+                target="_blank"
+                style="cursor: pointer"
+              >
+                實況主名稱
+              </a>
+
+              <div class="ms-1" id="${id}-live" hidden>
+                <span class="badge text-bg-danger" style="font-size: 0.5rem">
+                  LIVE
+                </span>
+              </div>
+            </div>
+            <span
+              class="text-secondary text-truncate"
+              style="font-size: 0.75rem"
+              id="${id}-game"
+            >
+              <i class="bi bi-controller"></i>
+              <span id="${id}-game-name"></span>
+            </span>
+          </div>
+
+          <div class="col-auto dropend">
+            <button
+              class="btn btn-sm btn-outline-primary border-0"
+              style="height: 100%"
+              data-bs-toggle="dropdown"
+              data-bs-auto-close="true"
+              aria-expanded="false"
+            >
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+
+            <ul
+              class="dropdown-menu"
+              style="min-width: 100px; font-size: 0.75rem"
+            >
+              <li>
+                <a class="dropdown-item" id="${id}-broadcaster">
+                  <i class="bi bi-box-arrow-up-right"></i> 開啟
+                </a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="dropdown-item text-danger remove"
+                  value="${id}"
+                >
+                  <i class="bi bi-trash"></i> 移除
+                </button>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" id="${id}-twitch" target="_blank">
+                  <i class="bi bi-twitch"></i> Twitch
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="card-footer">
       <a
         class="card-link link-secondary"
         href="https://www.flaticon.com/free-icons/robot"
@@ -49,10 +128,26 @@
       >
         Robot icons created by Freepik - Flaticon
       </a>
-    </div>
+    </div> -->
 
     <script src="lib/bootstrap.js"></script>
     <script src="lib/jquery.js"></script>
+    <script src="lib/js-cookie.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/apis.js"></script>
+    <script src="js/list.js"></script>
     <script src="js/popup.js"></script>
   </body>
 </html>
+
+<style>
+  a.text-decoration-none:hover {
+    text-decoration: underline !important;
+  }
+  .dropdown-item {
+    cursor: pointer;
+  }
+  .dropdown-item i {
+    margin-right: 4px;
+  }
+</style>

@@ -23,16 +23,39 @@ const errorHandler =
     reject(err);
   };
 
-const getUser = (login) =>
-  new Promise((resolve, reject) => {
+function getChennels(ids) {
+  return new Promise((resolve, reject) => {
+    const key = "broadcaster_id";
     const query = () =>
       $.ajax({
-        url: `${API_HELIX}/users?login=${login}`,
+        url: `${API_HELIX}/channels?${key}=${ids.join(`&${key}=`)}`,
         type: "GET",
         beforeSend: setHeaders,
-        success: ({ data }) => resolve(data.length ? data[0] : null),
+        success: ({ data }) => resolve(data.length ? data : null),
       });
 
-    const errorParams = { reject, funcName: "getUser", callback: query };
+    const errorParams = { reject, funcName: "getChennels", callback: query };
     query().fail(errorHandler(errorParams));
   });
+}
+
+async function getUser(login) {
+  const x = await getUsers([login]);
+  return x === null ? null : x[0];
+}
+
+function getUsers(logins) {
+  return new Promise((resolve, reject) => {
+    const key = "login";
+    const query = () =>
+      $.ajax({
+        url: `${API_HELIX}/users?${key}=${logins.join(`&${key}=`)}`,
+        type: "GET",
+        beforeSend: setHeaders,
+        success: ({ data }) => resolve(data.length ? data : null),
+      });
+
+    const errorParams = { reject, funcName: "getUsers", callback: query };
+    query().fail(errorHandler(errorParams));
+  });
+}
