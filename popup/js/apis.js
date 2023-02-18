@@ -18,7 +18,9 @@ const errorHandler =
     }
 
     const msg = `${responseText} (apis.js/${funcName})`;
-    reject(new Error(msg));
+    const err = new Error(msg);
+    console.error(err);
+    reject(err);
   };
 
 const getUser = (login) =>
