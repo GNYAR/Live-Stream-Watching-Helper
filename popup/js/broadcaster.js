@@ -5,6 +5,11 @@ const showAlert = (msg) => {
   $("#alert").text(msg).removeAttr("hidden");
 };
 
+const showButton = (btn) => {
+  $("button").hide();
+  $(`#${btn}`).show();
+};
+
 getUser(params.get("login"))
   .then((x) => {
     if (x === null) {
@@ -19,15 +24,18 @@ getUser(params.get("login"))
 
     $(".placeholder").removeClass("placeholder");
     $("button").val(id).removeAttr("disabled");
+    showButton(list.includes(id) ? "remove" : "add");
   })
   .catch(() => showAlert("發生錯誤"));
 
 $("#add").click(function (e) {
   e.preventDefault();
   list.push($(this).val());
+  showButton("remove");
 });
 
 $("#remove").click(function (e) {
   e.preventDefault();
   list.remove($(this).val());
+  showButton("add");
 });
