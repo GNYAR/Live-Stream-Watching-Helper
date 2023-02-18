@@ -15,7 +15,7 @@ class List {
   }
 
   push(id) {
-    if (this.includes(id)) return;
+    if (!id || this.includes(id)) return;
     const list = this.get();
     this.set([...list, id]);
   }

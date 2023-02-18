@@ -5,7 +5,9 @@ getUser(params.get("login")).then(
     $("#profile").attr("src", profile_image_url);
     $("#name").text(display_name);
     $("#login").text(login);
-    $("button").val(id);
+
+    $(".placeholder").removeClass("placeholder");
+    $("button").val(id).removeAttr("disabled");
   }
 );
 
