@@ -40,7 +40,11 @@
     </div>
 
     <div class="card-body">
-      <div class="placeholder-glow" id="list">
+      <div
+        class="placeholder-glow overflow-y-auto overflow-x-hidden customized-scrollbar pe-1"
+        id="list"
+        style="max-height: 220px"
+      >
         <div class="row py-1" id="${id}">
           <div class="col-auto">
             <img
@@ -154,5 +158,18 @@
   }
   .dropdown-item i {
     margin-right: 4px;
+  }
+
+  .customized-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: var(--bs-secondary-bg);
+    border-radius: 2px;
+  }
+
+  /* Add a thumb */
+  .customized-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 2px;
   }
 </style>
