@@ -19,3 +19,7 @@ a.text-decoration-none:hover {
   background: var(--bs-secondary);
   border-radius: 2px;
 }
+
+body {
+  width: 250px;
+}

@@ -23,7 +23,7 @@ getUser(params.get("login"))
     $("#login").text(login);
 
     $(".placeholder").removeClass("placeholder");
-    $("button").val(id).removeAttr("disabled");
+    $("button").val(id).removeAttr("disabled").removeClass("d-none");
     showButton(list.includes(id) ? "remove" : "add");
   })
   .catch(() => showAlert("發生錯誤"));
