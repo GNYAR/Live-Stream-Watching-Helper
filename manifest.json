@@ -11,5 +11,16 @@
   },
   "action": {
     "default_popup": "popup/popup.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "css": ["contentScripts/css/bonusesClaimer.css"],
+      "js": [
+        "lib/arrive.js",
+        "lib/jquery.js",
+        "contentScripts/js/bonusesClaimer.js"
+      ]
+    }
+  ]
 }
