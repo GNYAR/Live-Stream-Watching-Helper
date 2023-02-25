@@ -1,9 +1,9 @@
-console.log("bonusesClaimer");
+log("BonusesClaimer");
 const bonusCounterId = "bonusCounter";
 
 document.arrive("button .claimable-bonus__icon", function () {
   this.click();
-  console.log(`[${new Date()}] Claim Bonus`);
+  log("Claim Bonus");
   if (!$(`#${bonusCounterId}`)[0]) {
     const bonusCounter = document.createElement("div");
     bonusCounter.id = bonusCounterId;

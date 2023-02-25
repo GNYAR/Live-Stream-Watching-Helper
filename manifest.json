@@ -19,6 +19,7 @@
       "js": [
         "lib/arrive.js",
         "lib/jquery.js",
+        "contentScripts/js/utils.js",
         "contentScripts/js/bonusesClaimer.js"
       ]
     }
