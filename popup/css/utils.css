@@ -1,0 +1,21 @@
+a.text-decoration-none:hover {
+  text-decoration: underline !important;
+}
+
+.fs-sm-1 {
+  font-size: 0.75rem;
+}
+.fs-sm-2 {
+  font-size: 0.5rem;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: var(--bs-secondary-bg);
+  border-radius: 2px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--bs-secondary);
+  border-radius: 2px;
+}

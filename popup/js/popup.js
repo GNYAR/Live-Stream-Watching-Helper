@@ -24,8 +24,13 @@ getChennels(list.get())
       const twitch = `https://www.twitch.tv/${login}`;
 
       $(`#${id}-profile`).attr("src", profile_image_url);
-      $(`#${id}-name`).text(display_name).attr("href", twitch);
-      $(`#${id}-game-name`).text(game_name ? game_name : "--");
+      $(`#${id}-name`)
+        .text(display_name)
+        .attr("href", twitch)
+        .attr("title", display_name);
+      $(`#${id}-game-name`)
+        .text(game_name ? game_name : "--")
+        .attr("title", game_name);
       $(`#${id}-twitch`).attr("href", twitch);
       $(`#${id}-broadcaster`).attr("href", `broadcaster.html?login=${login}`);
     });

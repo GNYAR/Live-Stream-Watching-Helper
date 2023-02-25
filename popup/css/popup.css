@@ -1,0 +1,25 @@
+body {
+  width: 250px;
+}
+/* list */
+#list {
+  max-height: 210px;
+}
+#list .row:hover {
+  background-color: var(--bs-secondary-bg);
+}
+
+.profile {
+  width: 42px;
+  padding: 2px;
+}
+/* dropdown */
+.dropstart > button {
+  height: 100%;
+}
+.dropdown-menu {
+  min-width: 100px;
+}
+.dropdown-item i {
+  margin-right: 4px;
+}

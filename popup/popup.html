@@ -13,9 +13,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <link rel="stylesheet" href="css/utils.css" />
+    <link rel="stylesheet" href="css/popup.css" />
   </head>
 
-  <body class="card border-0" style="width: 250px">
+  <body class="card border-0">
     <div class="input-group input-group-sm rounded-0">
       <span class="input-group-text rounded-0">
         <i class="bi bi-twitch"></i>
@@ -24,8 +26,8 @@
       <input
         type="text"
         class="form-control"
-        placeholder="實況主使用者名稱"
-        aria-label="實況主使用者名稱"
+        placeholder="使用者名稱"
+        aria-label="使用者名稱"
         aria-describedby="search"
         id="broadcaster-login"
       />
@@ -34,25 +36,24 @@
         class="btn btn-outline-primary rounded-0"
         id="search"
         href="broadcaster.html"
+        title="搜尋"
       >
         <i class="bi bi-search"></i>
       </a>
     </div>
 
     <div class="card-body py-1">
-      <span style="font-size: 0.75rem">實況主清單</span>
+      <span class="fs-sm-1">實況主清單</span>
       <hr class="m-0" />
       <div
-        class="placeholder-glow overflow-y-auto overflow-x-hidden customized-scrollbar pe-1"
+        class="placeholder-glow overflow-y-auto overflow-x-hidden scrollbar px-1"
         id="list"
-        style="max-height: 200px"
       >
         <div class="row py-1" id="${id}">
           <div class="col-auto">
             <img
               src="images/profile.png"
-              class="placeholder rounded-circle border border-2 border-primary"
-              style="width: 42px; padding: 2px"
+              class="profile placeholder rounded-circle border border-2 border-primary"
               alt="實況主頭像"
               id="${id}-profile"
             />
@@ -64,21 +65,17 @@
                 class="placeholder text-body fw-bold text-truncate text-decoration-none"
                 id="${id}-name"
                 target="_blank"
-                style="cursor: pointer"
               >
                 實況主名稱
               </a>
 
               <div class="ms-1" id="${id}-live" hidden>
-                <span class="badge text-bg-danger" style="font-size: 0.5rem">
-                  LIVE
-                </span>
+                <span class="badge text-bg-danger fs-sm-2"> LIVE </span>
               </div>
             </div>
 
             <span
-              class="placeholder text-secondary text-truncate"
-              style="font-size: 0.75rem"
+              class="placeholder text-secondary text-truncate fs-sm-1"
               id="${id}-game"
             >
               <i class="bi bi-controller"></i>
@@ -86,22 +83,19 @@
             </span>
           </div>
 
-          <div class="col-auto dropend">
+          <div class="col-auto dropstart">
             <button
               class="placeholder btn btn-sm btn-outline-primary border-0"
-              style="height: 100%"
               data-bs-toggle="dropdown"
               data-bs-auto-close="true"
               aria-expanded="false"
+              title="選項"
               disabled
             >
               <i class="bi bi-three-dots-vertical"></i>
             </button>
 
-            <ul
-              class="dropdown-menu"
-              style="min-width: 100px; font-size: 0.75rem"
-            >
+            <ul class="dropdown-menu fs-sm-1">
               <li>
                 <a class="dropdown-item" id="${id}-broadcaster">
                   <i class="bi bi-box-arrow-up-right"></i> 開啟
@@ -109,11 +103,7 @@
               </li>
 
               <li>
-                <button
-                  type="button"
-                  class="dropdown-item text-danger remove"
-                  value="${id}"
-                >
+                <button class="dropdown-item text-danger remove" value="${id}">
                   <i class="bi bi-trash"></i> 移除
                 </button>
               </li>
@@ -150,28 +140,3 @@
     <script src="js/popup.js"></script>
   </body>
 </html>
-
-<style>
-  a.text-decoration-none:hover {
-    text-decoration: underline !important;
-  }
-  .dropdown-item {
-    cursor: pointer;
-  }
-  .dropdown-item i {
-    margin-right: 4px;
-  }
-
-  .customized-scrollbar::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-    background-color: var(--bs-secondary-bg);
-    border-radius: 2px;
-  }
-
-  /* Add a thumb */
-  .customized-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--bs-secondary);
-    border-radius: 2px;
-  }
-</style>
