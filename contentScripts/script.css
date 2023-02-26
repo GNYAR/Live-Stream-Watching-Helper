@@ -1,7 +1,15 @@
-#bonusCounter {
+#bonusCounter,
+#copyBtn {
   font-size: 1rem;
   padding: 0 0.5rem 0 0.5rem;
   border-radius: 0.375rem;
-  background: #00db84;
-  color: #000;
+  background: #00ad96;
+  color: #efeff1;
+  margin-left: 8px;
+}
+
+#copyBtn:not(:hover),
+#copyBtn.disabled {
+  color: #fff;
+  background-color: #00bd84;
 }
