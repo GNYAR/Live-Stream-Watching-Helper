@@ -3,6 +3,7 @@ const API_HELIX = "https://api.twitch.tv/helix";
 const setHeaders = (xhr) => {
   xhr.setRequestHeader("Client-Id", CLIENT.ID);
   xhr.setRequestHeader("Authorization", `Bearer ${Cookies.get("token")}`);
+  xhr.setRequestHeader("Content-Type", "application/json");
 };
 
 const errorHandler =
@@ -22,6 +23,36 @@ const errorHandler =
     console.error(err);
     reject(err);
   };
+
+function createEventsubSubscription(type, version, condition, session_id) {
+  const data = {
+    type,
+    version,
+    condition,
+    transport: {
+      method: "websocket",
+      session_id: session_id,
+    },
+  };
+
+  return new Promise((resolve, reject) => {
+    const query = () =>
+      $.ajax({
+        url: `${API_HELIX}/eventsub/subscriptions`,
+        type: "POST",
+        beforeSend: setHeaders,
+        data: JSON.stringify(data),
+        success: (x) => resolve(x),
+      });
+
+    const errorParams = {
+      reject,
+      funcName: "createEventsubSubscription",
+      callback: query,
+    };
+    query().fail(errorHandler(errorParams));
+  });
+}
 
 function getChennels(ids) {
   return new Promise((resolve, reject) => {
