@@ -18,3 +18,15 @@
   color: #efeff1;
   cursor: default;
 }
+
+#videoBtn {
+  margin-top: auto;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hiddenTxt {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-size: 2.4rem;
+  margin: 16px;
+}
