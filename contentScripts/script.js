@@ -75,7 +75,5 @@ document.arrive(".user-avatar-card__live", { onceOnly: true }, function () {
       }
     });
 
-  document
-    .getElementById("channel-player")
-    .children[0].children[1].prepend(btn);
+  $(".player-controls__right-control-group").prepend(btn);
 });
