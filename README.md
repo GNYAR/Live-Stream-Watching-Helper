@@ -1,11 +1,14 @@
-# 圖奇助手
+# Live Stream Watching Helper
 
 ## Todo
 
 - [ ] 實況主聊天室訊息
 - [ ] 實況主上線通知
+- [ ] 設定頁面
 
-### v1
+## v0.0.0
+
+Twitch
 
 - [x] 實況主清單
 - [x] 自動收集獎勵
